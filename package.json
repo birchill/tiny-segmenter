@@ -1,0 +1,61 @@
+{
+  "name": "@birchill/tiny-segmenter",
+  "version": "1.0.0",
+  "description": "Lightweight Japanese word segmenter",
+  "keywords": [
+    "segmenter",
+    "Japanese"
+  ],
+  "author": "Taku Kudo",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "prepublishOnly": "tsup",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birchill/tiny-segmenter.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "bugs": {
+    "url": "https://github.com/birchill/tiny-segmenter/issues"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "8.0.1",
+    "husky": "9.0.11",
+    "knip": "5.23.1",
+    "lint-staged": "15.2.7",
+    "prettier": "3.3.2",
+    "release-it": "17.4.0",
+    "tsup": "8.1.0",
+    "typescript": "5.5.2",
+    "vitest": "1.6.0",
+    "vitest-github-actions-reporter": "0.11.1"
+  }
+}

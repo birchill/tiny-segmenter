@@ -1,0 +1,30 @@
+name: Automated tests
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4.1.7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v4.0.2
+        with:
+          cache: pnpm
+          node-version: 20
+
+      - name: Build
+        run: |
+          pnpm install
+          pnpm build
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Knip
+        run: pnpm knip
